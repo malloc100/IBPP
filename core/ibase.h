@@ -60,13 +60,31 @@
 #ifndef INCLUDE_TYPES_PUB_H
 #define INCLUDE_TYPES_PUB_H
 
+
+#if defined(__GNUC__) || defined (__HP_cc) || defined (__HP_aCC)
+#include <inttypes.h>
+#else
+
+#if !defined(_INTPTR_T_DEFINED)
+#if defined(_WIN64)
+typedef __int64 intptr_t;
+typedef unsigned __int64 uintptr_t;
+#else
+typedef long intptr_t;
+typedef unsigned long uintptr_t;
+#endif
+#endif
+
+#endif
+
+
 #if defined(_LP64) || defined(__LP64__) || defined(__arch64__)
 typedef unsigned int    FB_API_HANDLE;
 #else
 typedef void*           FB_API_HANDLE;
 #endif
 
-typedef long ISC_STATUS;
+typedef intptr_t ISC_STATUS;
 
 #define ISC_STATUS_LENGTH       20
 typedef ISC_STATUS ISC_STATUS_ARRAY[ISC_STATUS_LENGTH];

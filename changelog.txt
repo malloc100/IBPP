@@ -1,4 +1,4 @@
-$Id: changelog.txt 92 2006-11-08 14:18:11Z epocman $
+$Id: changelog.txt 92 2017-03-29 21:51:51Z malloc100 $
 
 IBPP, A c++ Client API for Firebird (and Interbase)
 
@@ -22,6 +22,11 @@ under the License.
 
 The most recent addition to this file is always on top and has the highest
 item number.
+
+25. March 29, 2017
+
+- Fix define of ISC_STATUS to intptr_t to catch up a change introduced by
+Firebird 2.1 for x64 targets
 
 24. November 08, 2006
 
